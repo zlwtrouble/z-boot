@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta content="text/html;charset=UTF-8" />
+    <link th:src="@{bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:src="@{bootstrap/css/bootstrap-theme.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{bootstrap/js/bootstrap.js}"></script>
+    <title>Spring Security Example </title>
+</head>
+<body>
+<p th:class="${username == null}">请登录</p>
+<form class="form-signin" role="form" th:action="@{/user/login}"  th:method="post">
+    <input type="text" class="form-control" placeholder="用户名"  required="required"  name="username"  />
+    <input type="password" class="form-control" placeholder="密码" required="required"  name="password" />
+    <button class="btn btn-lg btn-warning btn-block" type="submit">登录</button>
+    <label class="checkbox">
+        <input type="checkbox" value="remember-me" /> 记住我
+    </label>
+</form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Boot</title>
+</head>
+<body>
+<h1>欢迎使用Spring Boot!</h1>
+<!--<p>点击 <a th:href="@{/hello}">这里</a> 打个招呼吧</p>-->
+<p>欢迎来到我的<a th:href="${url}">Spring-boot</a>欢迎页面</p>
+<p>时间：<label th:text="${date}"></label></p>
+<a th:unless="${session.user != null}" th:href="@{/login}" >登录</a>
+</body>
+</html>
