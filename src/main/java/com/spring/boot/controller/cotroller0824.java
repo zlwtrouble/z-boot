@@ -9,6 +9,6 @@ public class cotroller0824 {
 
     //新建一个类
      public static void main(String[] args) {
-
+            System.out.println("hello");
       }
 }
