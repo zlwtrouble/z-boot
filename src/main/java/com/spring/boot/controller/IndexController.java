@@ -18,14 +18,13 @@ public class IndexController {
 
     @RequestMapping("/index")
     public String index(){
-<<<<<<< HEAD
+
         long a=1L;
         return "index";
     }
 
 
-=======
-        return "index";
-    }
->>>>>>> e5f5b84... 测试git第一次上传
+
+
+
 }
