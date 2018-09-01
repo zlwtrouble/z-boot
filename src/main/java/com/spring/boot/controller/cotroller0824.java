@@ -11,5 +11,8 @@ public class cotroller0824 {
      public static void main(String[] args) {
             //2018-9-1-7-54
          int a=1;
+         int c=2;
+         int d=3;
+
       }
 }
