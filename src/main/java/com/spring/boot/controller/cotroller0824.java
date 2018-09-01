@@ -15,6 +15,7 @@ public class cotroller0824 {
          int d=3;
 
          int e=4;
+         int e=5;
 
       }
 }
