@@ -104,14 +104,14 @@ public class UserContoller {
     @RequestMapping(value = "/query", method = RequestMethod.GET)
     @ResponseBody
     public FrontJSONResult query(QueryUserForm form) {
-        /** 分页 */
+        /* 分页 */
         Map<String, Object> params = new HashMap<String, Object>();
         params.put("page", form.getPage());
         params.put("rows", form.getRows());
         //params.put("name", form.getUsername());
         logger.info("查询用户入参【form:{}】", form);
         //QueryUserListResult result = userService.selectUserByPage(params);
-        /** 不分页 */
+        /* 不分页 */
         QueryUserResult result = userService.result2(params);
         logger.info("【查询结果出参：{}】", result);
         return FrontJSONResult.fromExecuteResult(result);

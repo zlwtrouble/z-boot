@@ -13,6 +13,8 @@ public class User {
 
     private Date rowAddTime;
 
+    private Attribute attribute;
+
     public Integer getId() {
         return id;
     }
@@ -51,5 +53,17 @@ public class User {
 
     public void setRowAddTime(Date rowAddTime) {
         this.rowAddTime = rowAddTime;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", realName='" + realName + '\'' +
+                ", password='" + password + '\'' +
+                ", rowAddTime=" + rowAddTime +
+                ", attribute=" + attribute +
+                '}';
     }
 }
