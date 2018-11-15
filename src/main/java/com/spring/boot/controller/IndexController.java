@@ -18,6 +18,13 @@ public class IndexController {
 
     @RequestMapping("/index")
     public String index(){
+
+        long a=1L;
         return "index";
     }
+
+
+
+
+
 }
