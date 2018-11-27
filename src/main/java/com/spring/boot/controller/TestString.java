@@ -51,6 +51,13 @@ public class TestString {
 //    }
 
      public static void main(String[] args) {
+
+         String time="com.netflix.hystrix.exception.HystrixBadRequestException: 该客户信用账户额度不足";
+         int i=time.indexOf("n:");
+         System.out.println(""+time.substring(i+2));
+
+
+         System.out.println(""+i);
          String str1="";
         String str2="aabb";
        String str3="我来了";
@@ -60,7 +67,13 @@ public class TestString {
          String str7=" a  b   ";
          System.out.println(""+TestString.stringCheck(str6));
          System.out.println(""+TestString.stringCheckLength(str7,1,3));
-      }
+         //特殊空格处理
+         System.out.println("TY00000007 ".trim()+"结束");
+         System.out.println("999800000011 ".trim()+"结束");
+
+
+
+     }
 
 
 

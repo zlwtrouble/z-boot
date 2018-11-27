@@ -8,9 +8,10 @@ import java.util.Date;
 
 /**
  * @author zhaoliwei
- * @description:
+ * @description: 时间工具
  * @date 2018/9/13 10:33
  **/
+
 public class TestMin {
 
     public static void main(String[] args) {
@@ -47,6 +48,7 @@ public class TestMin {
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
         now.set(Calendar.MINUTE, now.get(Calendar.MINUTE) - Minute);
+
         return now.getTime();
     }
 
