@@ -1,11 +1,11 @@
 package com.spring.boot.controller.netty;
 
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
 /**
@@ -20,10 +20,11 @@ public class NettyTimeClient {
         try {
             Bootstrap b = new Bootstrap();
 
-            b.group(group).channel(NioSocketChannel.class).option(ChannelOption.TCP_NODELAY, true).handler(new ChannelInitializer() {
+            b.group(group).channel(NioSocketChannel.class)
+                    .option(ChannelOption.TCP_NODELAY, true).handler(new ChannelInitializer<SocketChannel >() {
 
                 @Override
-                protected void initChannel(Channel channel) throws Exception {
+                protected void initChannel(SocketChannel channel) throws Exception {
                     channel.pipeline().addLast(new NettyTimeClientHandler());
                 }
             });
@@ -39,7 +40,7 @@ public class NettyTimeClient {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        int port = 8080;
+        int port = 8090;
         if (args != null && args.length > 0) {
             try {
                 port = Integer.valueOf(args[0]);
