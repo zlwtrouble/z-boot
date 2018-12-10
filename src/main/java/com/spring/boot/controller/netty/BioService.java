@@ -14,7 +14,7 @@ import java.net.Socket;
 @Slf4j
 public class BioService{
                  public static void main(String[] args) {
-                   int port=8080;
+                   int port=8055;
                    if(args !=null&&args.length>0){
                        try {
                            port = Integer.valueOf(args[0]);

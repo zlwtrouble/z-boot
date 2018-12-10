@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.Date;
 
 /**
  * @author zhaoliwei
@@ -39,7 +38,7 @@ public class TimeServerHandler implements Runnable {
 
                 }
                 log.info("有输入流"+ JSONObject.toJSONString(body));
-                currentTime="QUERY TIME ORDER".equalsIgnoreCase(body)? new Date(System.currentTimeMillis()).toString() :"BAD ORDER";
+                currentTime="收到了";
                 out.println(currentTime);
             }
 

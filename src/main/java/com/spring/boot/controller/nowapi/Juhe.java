@@ -1,4 +1,4 @@
-package com.spring.boot.controller;
+package com.spring.boot.controller.nowapi;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +19,7 @@ public class Juhe {
         Container con=f.getContentPane();
         con.setLayout(new GridLayout());
         JLabel l = new JLabel();
-        new Thread(new NewApi(l)).start();
+        new Thread(new com.spring.boot.controller.NewApi(l)).start();
         //文字颜色
         l.setForeground(Color.red);
         l.setBounds(0, 0, 50, 50);
