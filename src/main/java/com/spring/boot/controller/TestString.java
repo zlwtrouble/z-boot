@@ -1,5 +1,6 @@
 package com.spring.boot.controller;
 
+import com.spring.boot.common.utils.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.regex.Pattern;
@@ -71,7 +72,13 @@ public class TestString {
          System.out.println("TY00000007 ".trim()+"结束");
          System.out.println("999800000011 ".trim()+"结束");
 
-
+         String endwith=null;
+         if(endwith!=null && (endwith.endsWith(".")||endwith.endsWith("。"))){
+             System.out.println("有句号");
+         }
+String mark=null;
+         String ss=StringUtil.isNotBlank(mark) ? mark : "";
+            System.out.println(""+ss);
 
      }
 

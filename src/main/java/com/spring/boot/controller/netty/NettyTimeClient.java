@@ -40,7 +40,7 @@ public class NettyTimeClient {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        int port = 8090;
+        int port = 8070;
         if (args != null && args.length > 0) {
             try {
                 port = Integer.valueOf(args[0]);

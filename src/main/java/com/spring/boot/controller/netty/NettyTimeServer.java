@@ -54,12 +54,13 @@ public class NettyTimeServer {
     }
 
      public static void main(String[] args) {
-        int port=8090;
+        int port=8091;
         if(args!=null&&args.length>0){
             port=Integer.valueOf(args[0]);
         }
 
         new NettyTimeServer().bind(port);
       }
+
 
 }
