@@ -28,6 +28,15 @@ public class PushClient {
     private String host = "192.168.158.173";
     private int port = 8001;
 
+     public static void main(String[] args) {
+         PushClient pushClient = new PushClient();
+         try {
+             pushClient.connect();
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+     }
+
     public void connect() throws Exception {
         try{
             EventLoopGroup group = new NioEventLoopGroup();

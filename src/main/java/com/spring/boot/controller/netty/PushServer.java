@@ -45,7 +45,7 @@ public class PushServer {
                         p.addLast(new HeartBeatHandler());
                     }
                 });
-        bs.bind(8000).sync();
+        bs.bind(8001).sync();
         System.out.println("com.liu.nettypushtest.server 8000 start....");
     }
 
