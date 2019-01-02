@@ -24,6 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
  **/
 public class PushServer {
 
+        static int port=8001;
 
     public void bind() throws Exception{
         EventLoopGroup bossGroup = new NioEventLoopGroup();
@@ -45,9 +46,11 @@ public class PushServer {
                         p.addLast(new HeartBeatHandler());
                     }
                 });
-        bs.bind(8001).sync();
-        System.out.println("com.liu.nettypushtest.server 8000 start....");
+        bs.bind(port).sync();
+        System.out.println("com.liu.nettypushtest.server port start:"+port);
     }
+
+
 
     //消息推送
     public void push(){
@@ -74,6 +77,10 @@ public class PushServer {
     public static void main(String[] args) throws Exception{
         PushServer pushServer = new PushServer();
         pushServer.bind();
+        while (true){
+            pushServer.push();
+            Thread.sleep(10000);
+        }
     }
 
 }

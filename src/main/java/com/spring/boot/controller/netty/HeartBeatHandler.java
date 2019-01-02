@@ -35,4 +35,9 @@ public class HeartBeatHandler extends SimpleChannelInboundHandler<Message> {
         return msg;
     }
 
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) {
+        ClientConnectionMap.removeClientConnection(ctx);
+    }
+
 }
