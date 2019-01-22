@@ -28,15 +28,15 @@ public class TestStream {
          List<Student> studentList2=studentList.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
          log.info("【测试流】降序【{}】",JSONObject.toJSONString(studentList2));
 
-         List<Student> studentList3= Arrays.asList(new Student(1,"ziwen1",10),new Student(2,"aiwen2",18),new Student(3,"biwen3",28),new Student(4,"asdfbiwen3",28),new Student(5,"asdfdsbiwen3",28));
+         List<Student> studentList3= Arrays.asList(new Student(1,"ziwen1",10),new Student(1,"aiwen2",18),new Student(1,"biwen3",28),new Student(4,"asdfbiwen3",28),new Student(5,"asdfdsbiwen3",28),new Student(null,"asdfdsbiwen3",28));
 
          studentList3.forEach(o-> {
              System.out.println("流foreach"+o);
          });
 
-         //list转map
+         //list转map  用流key不能重复
          List<Long> listForeach= Lists.newArrayList();
-         Map<Integer, Student> collect = studentList3.stream().collect(Collectors.toMap(Student::getId, student -> student));
+         Map<Integer, Student> collect = studentList3.stream().collect(Collectors.toMap(Student::getId, student -> student,(k1,k2)->k1));
          System.out.println(collect);
 
          studentList3.forEach(o->{
@@ -46,10 +46,21 @@ public class TestStream {
          studentList3.parallelStream().forEach(o->{
              System.out.println("并行流"+o);
          });
+         Integer one=1;
 
-         List<Student> collectFilter = studentList3.parallelStream().filter(o-> o.getId().equals(1)).collect(Collectors.toList());
+         List<Student> collectFilter = studentList3.parallelStream().filter(o->one.equals(o.getId())).collect(Collectors.toList());
 
          System.out.println("并行过滤流"+collectFilter);
 
+
+         Map<Integer, Student> collect11 = studentList3.parallelStream().collect(Collectors.toMap(Student::getId, student -> student,(k1,k2)->k1));
+         System.out.println("流"+collect11);
+
+
+        //流转list 并去重
+         List<Integer> productIds=null;
+             productIds = studentList3.stream().map(Student::getId).distinct()
+                     .collect(Collectors.toList());
+         System.out.println("去重"+productIds);
      }
 }
