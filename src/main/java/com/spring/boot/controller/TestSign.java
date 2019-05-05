@@ -34,7 +34,7 @@ public class TestSign {
     String key ="8DaKvaxjUToHuZxxgiKWAo3YlIDNslFaaNRFJoI9uFkpS8occmaHjtb1LEBkdkfeYn5kIUKuzPoRy6uhP2B2ihmopK17WbA7BnOih0H6EuCMhMadv62WdMCGwGWGgacg";
     String sign = null;
         try {
-        sign = SignUtil.sign(paraMap, key, null);
+        sign = SignUtil.sign(paraMap, key);
         System.out.println(String.format("sign = %s", sign));
     } catch (Exception e) {
         e.printStackTrace();

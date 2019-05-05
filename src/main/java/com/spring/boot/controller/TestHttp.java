@@ -42,24 +42,25 @@ public class TestHttp {
 
         //签名
         Map<String, String> paraMap = new HashMap<String, String>();
-        paraMap.put("mchId","252110195447447552");
-        paraMap.put("transInstu","310000000001");
-        paraMap.put("transChannel","ALIPAY_PC_PAY");
-        paraMap.put("orderId","00000009");
+        paraMap.put("mchId", "252110195447447552");
+        paraMap.put("transInstu", "310000000001");
+        paraMap.put("transCode", "0101");
+        paraMap.put("bizCode", "0101");
+        paraMap.put("orderId", "DD-2019-4-25-01");
         Date now = new Date();
-        paraMap.put("transDate", DateUtil.format(now,TestHttp.YYYYMMDD_PAY));
-        paraMap.put("transTime",DateUtil.format(now,TestHttp.HHMMSS_PAY));
+        paraMap.put("transDate", DateUtil.format(now, "yyyyMMdd"));
+        paraMap.put("transTime", DateUtil.format(now, "HHmmss"));
 
-        paraMap.put("amount","1");
-        paraMap.put("backUrl","http：//192.168.173.75:9052/api/oms/payChannel/callBack");
-        paraMap.put("transDesc","我是交易描述9");
+        paraMap.put("amount", "1");
+        paraMap.put("backUrl", "http://192.168.173.75:9052/api/oms/payChannel/callBack");
+        paraMap.put("transDesc", "我是交易描述2019-4-25测");
 
-        paraMap.put("endTime", "20181109153050");
-        paraMap.put("sign","");
-        String key ="tms";
+        paraMap.put("endTime", DateUtil.format(new Date(System.currentTimeMillis() + 120 * 60 * 1000), "yyyyMMddHHmmss"));
+        String key = "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCT1sa2laP0XD3Bb/TrLBMYBVv+iYKOfEeGIi62C8kWT2hRxkPZDQSUMzONv+suFwU+nP9hFK/cQHtRoXlTkI+6q5/k1f6EzY+I8POs0b9McK4VRcbK/bCNfF7np2o80T5wgF1DhFxEHE4sjzG2VWt46MsADiFqB/T6eFgT4JTstz3bwwxF0nEn6UAe7h753JLGtjJ6iyncmAZGAWixikjPvSdlQoBGlVlsrQemAPaVk4y1wkBJNCm+xnD66itR/l3CTO19qrYCuAxQrwvi6pX0LrGvvs9HKr5W4QTxGtWjUys6H2I3G300fCi3d9sPIuoEWpBA97lRQg3DICneDFKHAgMBAAECggEAcgbSNbmtP6h1qWEk0s6n23smvWhqXmPU9sweoyLr8l1E5O27Hwo/Yd8sAETqrB3tWaHWB5bhHUxO0WNuJNn3Qc9mACZdrSivcLwH9l/A4MB4RMgQ0DhjmH045gvmkQoC0trvFEhesdnzIcNAYJX50sQa7uv3McT5Wsa/iHVL6FcmKMAH37BfZDEw62TlEyCdEZ+ldcnMb/ZeJUY1kfwjRjhFDTPfs4Y0SCoTz6P4YBVIt9apS21RGsVkJglVy2MZi0rGiuB/NOitNApsHM38yF3p9AcFEanok/qJgYPqg0qJgvZKT3Zv8xlOnMVhK6vU/VxHuxDGFw8Vwy22mQc7gQKBgQD+7T3TVuLcWRQewtNx4xPmgsWCIoPjnH80cbtUPvKYhpSA/0sC9/9wPdaGkXELsOQWji8Rg2ifQf1Vh+rkirv3H318XLk/Fb0QVcG5JP30HSTNrLjtw1k8VoF76JqkP2KmhLoyd7w5KmkMa2a+zElst/QNBW2srwJn2ZLdNwUxlwKBgQCUdh2907popIfr6pHAB7QRzqnFM8pof2i/NsQmrccV/TbGA3fCJYiFdhLAZeYn2WnfEKAz7Ycq6O4k7s5vc+SuzZLCjq9+eY0S+CdSLbereIqzCdhQr+zYQBbICQUvtoalauhe5jPv3BUrDf8XWncdBsmhHcxJfVUobEeAcC4kkQKBgDhMGjA26uiwf2H/soRfGoD4djez+Z5lbC4fw7fqItcOOXN3bZBdRjr6XQrgya9EREq64agjdhJdl12xI22POc1sVeEF9R76ZQNbfOmvQqoLWZpWP4y6bFWH4RaFGsmU+es+OoR0rsuNEx/cBBe0s65fvXS2sy7Eg2p9wRI7WVlHAoGBAIyjE+uWXfjxG711uVpjMcbIsnSYaj7xq0WwWMKXTohbFf8gm9sz+Q8M2hierxfC0pM4SbrHYYtZmvcrri1QaSranRNnXYH/HZABuiYUHvD1wNZ4Fg3higkVNT+Lo/kd/JFJJBV6F2s6Xmcp3CPAVCQQIQNamgJoEzq20Ekwe9WxAoGBALKhWV/unC5C6NeaAqOITJbmfxgn+hx/EN8WXXz7QjjawEedQeU7wfYRU3YDYgSmMMtbol7CURcgpIdbvrZI4o146jb122EMZoty3aN8aaKKyokFGbo4F4+XGnesVMi676ro5ynG7evrCz36JX0bjl5+Qc8aNJ9yOUrXJBKRjjku";
+
         String sign = null;
         try {
-            sign = SignUtil.sign(paraMap, key, null);
+            sign = SignUtil.sign(paraMap, key);
             System.out.println(String.format("sign = %s", sign));
             paraMap.put("sign", sign);
         } catch (Exception e) {
@@ -80,7 +81,7 @@ public class TestHttp {
             post.setHeader("Content-type","application/json; charset=utf-8");
             post.setHeader("Accept", "application/json");
             post.setHeader("TransInstu", paraMap.get("transInstu"));
-            post.setHeader("TransChannel", paraMap.get("transChannel"));
+           // post.setHeader("TransChannel", paraMap.get("transChannel"));
 
             // 构建消息实体
             StringEntity entity = new StringEntity(JSONObject.toJSONString(paraMap), Charset.forName("UTF-8"));

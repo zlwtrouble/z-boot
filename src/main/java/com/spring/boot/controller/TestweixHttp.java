@@ -58,7 +58,7 @@ public class TestweixHttp {
         String key ="tms";
         String sign = null;
         try {
-            sign = SignUtil.sign(paraMap, key, null);
+            sign = SignUtil.sign(paraMap, key);
             System.out.println(String.format("sign = %s", sign));
             paraMap.put("sign", sign);
         } catch (Exception e) {
