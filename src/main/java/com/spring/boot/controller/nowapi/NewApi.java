@@ -65,7 +65,7 @@ public class NewApi implements Runnable {
                 Map map = net();
                 String time = map.get("uptime").toString();
                 int i = time.indexOf(":");
-                lab.setText(map.get("last_price").toString().substring(0,7) + "  时间:" + time.substring(i - 2, i + 6));
+                lab.setText(map.get("last_price").toString().substring(0,7) + "，" + time.substring(i - 2, i + 6));
                 System.out.println("数据：" +time);
 
                 Thread.sleep(1200 *60);
