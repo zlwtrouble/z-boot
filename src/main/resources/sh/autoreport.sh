@@ -17,11 +17,12 @@ WebUrl=http://127.0.0.1/WebReport/ReportServer
 
 # 日志输出
 GetPageInfo=/dev/null
-TomcatMonitorLog=/usr/local/tomcat-report/TomcatMonitor.log
+TomcatMonitorLog=/app/sh/reportMonitor.log
 
 
 
-
+Monitor()
+{
     echo "[info]开始监控tomcat...[$(date +'%F %H:%M:%S')]"
     if [ "$TomcatID" != "" ];then
     echo "[info]tomcat进程ID为:$TomcatID.]"
@@ -48,4 +49,5 @@ TomcatMonitorLog=/usr/local/tomcat-report/TomcatMonitor.log
     $StartTomcat
     fi
     echo "------------------------------"
-
+}
+Monitor>>$TomcatMonitorLog

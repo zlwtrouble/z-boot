@@ -13,12 +13,18 @@ import java.math.BigDecimal;
 public class TestBigDeical {
 
 
-     public static void main(String[] args) {
-         TestBigDeical testBigDeical = new TestBigDeical();
-         if(testBigDeical.handlePriceDifference(12,new BigDecimal("13"),new BigDecimal("12"))){
-             log.info("异常记录");
-         }
-     }
+//     public static void main(String[] args) {
+//         TestBigDeical testBigDeical = new TestBigDeical();
+//         if(testBigDeical.handlePriceDifference(12,new BigDecimal("13"),new BigDecimal("12"))){
+//             log.info("异常记录");
+//         }
+//     }
+
+    public static void main(String[] args) {
+        BigDecimal bigDecimal = new BigDecimal("0");
+       System.out.println(""+bigDecimal);
+       System.out.println(""+bigDecimal.abs());
+    }
 
 
     private boolean handlePriceDifference(Integer priceDifference, BigDecimal pricingPrice,BigDecimal inboundPrice) {

@@ -636,4 +636,15 @@ public class StringUtil {
         }
     }
 
+    public static String getNumber(String str) {
+        if (StringUtil.isBlank(str)) {
+            return null;
+        }
+        String regEx = "[^0-9]";
+        Pattern p = Pattern.compile(regEx);
+        Matcher m = p.matcher(str);
+        return m.replaceAll("").trim();
+    }
+
+
 }

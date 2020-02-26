@@ -21,6 +21,7 @@ import java.util.List;
  * @description:
  * @date 2019/6/11 14:25
  **/
+
 @Configuration
 public class RestTemplateUtil {
     @Bean
