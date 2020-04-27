@@ -42,14 +42,20 @@ public class TestBigDeical {
 //    }
 
 
+//    public static void main(String[] args) {
+//        for (int i=1;i<15;i++){
+//            BigDecimal size = new BigDecimal("" + i);
+//            BigDecimal divisor = new BigDecimal("2" );
+//            BigDecimal divide = size.divide(divisor, 0, BigDecimal.ROUND_HALF_UP);
+//            int atLeastCount =divide.intValue();
+//            System.out.println(i+"-->"+atLeastCount);
+//        }
+//
+//    }
+
     public static void main(String[] args) {
-        for (int i=1;i<15;i++){
-            BigDecimal size = new BigDecimal("" + i);
-            BigDecimal divisor = new BigDecimal("2" );
-            BigDecimal divide = size.divide(divisor, 0, BigDecimal.ROUND_HALF_UP);
-            int atLeastCount =divide.intValue();
-            System.out.println(i+"-->"+atLeastCount);
-        }
+        BigDecimal size = new BigDecimal("-2.01");
+        System.out.println(size.setScale(0, BigDecimal.ROUND_DOWN));
 
     }
 }
