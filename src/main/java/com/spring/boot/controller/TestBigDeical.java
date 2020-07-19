@@ -53,9 +53,22 @@ public class TestBigDeical {
 //
 //    }
 
+//    public static void main(String[] args) {
+//        BigDecimal size = new BigDecimal("-2.45");
+//        System.out.println(size.setScale(0, BigDecimal.ROUND_HALF_UP));
+//
+//        BigDecimal size2 = new BigDecimal("2.49");
+//        System.out.println(size2.setScale(0, BigDecimal.ROUND_HALF_UP));
+//
+//    }
+
     public static void main(String[] args) {
-        BigDecimal size = new BigDecimal("-2.01");
-        System.out.println(size.setScale(0, BigDecimal.ROUND_DOWN));
+        BigDecimal size = new BigDecimal("-21");
+        System.out.println(size.scale());
+
+
+        BigDecimal size2 = new BigDecimal("-21.0");
+        System.out.println(size2.precision() - size2.scale());
 
     }
 }

@@ -9,17 +9,17 @@ import java.util.Arrays;
  * @description:
  * @date 2019/1/21 10:09
  **/
-public class TestJSOn {
+public class TestJson {
 
-     public static void main(String[] args) {
-         int []a={10,8,30,2};
+    public static void main(String[] args) {
+        int[] a = {10, 8, 30, 2};
 
-         int []b={10,20,30};
+        int[] b = {10, 20, 30};
 
-         int []c={1,2,3};
-         //排序
-         //Arrays.sort(a);
-         Arrays.sort(a,0,2);
+        int[] c = {1, 2, 3};
+        //排序
+        //Arrays.sort(a);
+        Arrays.sort(a, 0, 2);
          //Arrays.equals()
          System.out.println(""+ JSON.toJSONString(a));
 

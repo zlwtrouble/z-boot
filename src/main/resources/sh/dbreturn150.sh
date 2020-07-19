@@ -1,6 +1,6 @@
 # /bin/bash
-
-#DB服务器IP  预发使用
+#13.150预发环境sql恢复
+#DB服务器IP
 DB_HOST=127.0.0.1
 #数据库
 db_admin="admin"
