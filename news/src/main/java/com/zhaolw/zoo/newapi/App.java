@@ -12,8 +12,8 @@ public class App {
 
     public static void main(String[] args) {
 
-        JFrame f = new JFrame("LoL");
-        f.setSize(440, 22);
+        JFrame f = new JFrame("N");
+        f.setSize(500, 22);
         f.setLocation(1300, 5);
 
         f.setLayout(null);
@@ -30,7 +30,7 @@ public class App {
         //字体
         l.setFont(new java.awt.Font("Dialog", 1, 14));
         //文字颜色
-        l.setForeground(new Color(95, 95, 95));
+        l.setForeground(new Color(0, 255, 0));
         l.setBounds(0, 0, 0, 0);
         con.add(l);
         f.validate();

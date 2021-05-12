@@ -99,11 +99,11 @@ public class NewApi implements Runnable {
             try {
                 List<String> result = new ArrayList<>();
                 String s = netStock();
-                result.add(ResultHandle.fitMsg(s, "包钢股份", 3));
-                result.add(ResultHandle.fitMsg(s, "HS300ETF", 3));
-                result.add(ResultHandle.fitMsg(s, "创业板50", 3));
+                result.add(ResultHandle.fitMsg(s, "包钢股份", "bao", 3));
+                result.add(ResultHandle.fitMsg(s, "HS300ETF", "300ETF", 3));
+                result.add(ResultHandle.fitMsg(s, "创业板50", "创ETF", 3));
 
-                lab.setText(String.join(";", result));
+                lab.setText(String.join("", result));
                 System.out.println("数据：" + lab.getText());
 
 

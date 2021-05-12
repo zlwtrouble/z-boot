@@ -7,7 +7,7 @@
     <modules>
         <module>news</module>
         <module>boot</module>
-
+        <module>mysql-check</module>
     </modules>
 
     <groupId>com.zhaolw.zoo</groupId>

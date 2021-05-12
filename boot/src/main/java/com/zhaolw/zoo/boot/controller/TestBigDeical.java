@@ -63,12 +63,22 @@ public class TestBigDeical {
 //    }
 
     public static void main(String[] args) {
+
+        TestBigDeical testBigDeical = new TestBigDeical();
+        testBigDeical.除不尽();
+    }
+
+    private void 小数位查看() {
         BigDecimal size = new BigDecimal("-21");
         System.out.println(size.scale());
-
-
         BigDecimal size2 = new BigDecimal("-21.0");
         System.out.println(size2.precision() - size2.scale());
+    }
 
+    private void 除不尽() {
+        BigDecimal one = new BigDecimal("1");
+        BigDecimal two = new BigDecimal("3");
+        BigDecimal divide = one.divide(two, 6, BigDecimal.ROUND_HALF_UP);
+        System.out.println(divide);
     }
 }

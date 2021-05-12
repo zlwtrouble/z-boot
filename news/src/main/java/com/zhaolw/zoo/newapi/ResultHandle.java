@@ -1,5 +1,6 @@
 package com.zhaolw.zoo.newapi;
 
+import java.math.BigDecimal;
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.List;
@@ -33,13 +34,17 @@ public class ResultHandle {
         return null;
     }
 
-    public static String fitMsg(String str, String name, int index) {
+    public static String fitMsg(String str, String name, String showName, int index) {
         try {
+            if (showName == null) {
+                showName = name;
+            }
             List<String> list = ResultHandle.fitList(str, name);
             if (list == null || list.size() == 0) {
                 return "";
             }
-            return MessageFormat.format("【{0}:{1}】", name, list.get(index));
+            BigDecimal divide = ((new BigDecimal("" + list.get(index)).subtract(new BigDecimal("" + list.get(2)))).divide(new BigDecimal("" + list.get(2)), 3, BigDecimal.ROUND_HALF_UP)).multiply(new BigDecimal("100"));
+            return MessageFormat.format("【{0}>{1}:{2}】", showName, divide, list.get(index));
         } catch (Exception e) {
             e.printStackTrace();
         }
