@@ -1,0 +1,16 @@
+
+
+
+<form name="punchout_form" method="post" action="https://openapi.alipay.com/gateway.do?charset=UTF-8&method=alipay.trade.page.pay&sign=hM57EStfUeu33U5hWKIkjwhHVmaxGvb0GLyT6YkOdt%2B1XTb4diA55S02NWRQySHcFnhnowpAzffAQkZIvBtHHqqp6fwsKDyQ6oZ1bSIKLNQIuj65GSL4SzAv6ueb1TKLZV5tSJqQxJmpENCO6wfWMBgW1hF%2Fe%2ForAnm0pVO3we%2BMdabp1krcxIL%2B3b6VutgZejKsfxhoxji3bYDQgIwRDZwEs5NdRAdvpFGQFIZigzeyworsuzN3ScLKtp7f4dMl37jWrYGRq1q5jlZZ77UlXYju1suwgMNtXY%2BCyuVssnMWYBUVKe%2B3oiSRbsyvxMl8gA0Jlx8BXyTxq2lweS8Utw%3D%3D&return_url=http%3A%2F%2Fwww.hsmall.joint.com%2Findex.html&notify_url=http%3A%2F%2F64413821.ngrok.io%2Fnotify%2FALIPAY_PC_PAY&version=1.0&app_id=2016062401552481&sign_type=RSA2&timestamp=2019-02-12+19%3A57%3A45&alipay_sdk=alipay-sdk-java-3.3.49.ALL&format=json">
+<input type="hidden" name="biz_content" value="{&quot;out_trade_no&quot;:&quot;302170516827471873&quot;,&quot;total_amount&quot;:&quot;0.15&quot;,&quot;subject&quot;:&quot;DD-20190212-176007：精印 电脑打印纸 2&quot;,&quot;timeout_express&quot;:&quot;120m&quot;,&quot;body&quot;:&quot;DD-20190212-176007：精印 电脑打印纸 2&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;}">
+<input type="submit" value="立即支付" style="display:none" >
+</form>
+<script>document.forms[0].submit();</script>
+
+
+<form name="punchout_form" method="post" action="https://openapi.alipay.com/gateway.do?charset=UTF-8&method=alipay.trade.page.pay&sign=KV%2FcTkE5hF%2BX8eOWfOzHPBtMJIDJrK%2FqnQ1ZuDb1P9NM0Ki2lmQ44TKq42%2BE7%2BXnPGPIO4jjy2sX0yKWtwymQmd0lqlH7eQjTJ2K7w%2F7y1KwYncMfWP0%2BnqqZkDhH2PFsuXdPqRgOkVbAkXm9b%2Bk9c6mmfHmDCIZUMC3njHfMgCiaF1SwsnPWpfZNX1z9%2Bk5A6PpNk8NL8NiM0xujxeRmXohulM7DRy7NXK2MR%2FsVMrlEgpvqvLPoXVxNvi8CvCCDfciHy2IbWONaVOjI4kpnC13m2KqeJSIjKQ5OIGYjNGNaD2RvwCTgKzRycckDE1qeBXOb%2F9OLoGxlLOektlclQ%3D%3D&return_url=http%3A%2F%2Fwww.hsmall.joint.com%2Findex.html&notify_url=http%3A%2F%2F64413821.ngrok.io%2Fapi%2Fpay%2Fnotify%2Falipay%2FpayCallBack%2F312673994523865088&version=1.0&app_id=2016062401552481&sign_type=RSA2&timestamp=2019-04-25+13%3A05%3A51&alipay_sdk=alipay-sdk-java-3.3.49.ALL&format=json">
+<input type="hidden" name="biz_content" value="{&quot;body&quot;:&quot;DD-20190425-235951：精印 电脑打印纸 2&quot;,&quot;out_trade_no&quot;:&quot;328158787246493697&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;,&quot;subject&quot;:&quot;DD-20190425-235951：精印 电脑打印纸 2&quot;,&quot;time_expire&quot;:&quot;2019-03-20 15:54&quot;,&quot;total_amount&quot;:&quot;0.15&quot;}">
+<input type="submit" value="立即支付" style="display:none" >
+</form>
+<script>document.forms[0].submit();</script>
+
