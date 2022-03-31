@@ -1,4 +1,4 @@
-package com.zhaolw.zoo.newapi;
+package com.zhaolw.zoo.tips;
 
 import com.alibaba.fastjson.JSON;
 
@@ -7,21 +7,16 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author zhaoliwei
  * @description:
  * @date 2018/11/16 15:58
  **/
-public class NewApi implements Runnable {
-    private JLabel lab = new JLabel();
+public class HttpUtil {
 
-    public NewApi(JLabel lab) {
-        this.lab = lab;
-    }
 
     public static Map net() throws IOException {
         InputStream in = null;
@@ -54,15 +49,15 @@ public class NewApi implements Runnable {
     }
 
 
-    public static String netStock(String code) throws IOException {
+    public static String netStock(String code, String url) {
+
         if (code == null) {
             code = "utf-8";
         }
         //股票接口
         InputStream in = null;
         try {
-            String s = String.format("http://web.juhe.cn:8080/finance/stock/hs?type=%s&key=%s", "0", "cd7ad78a1b39194922448d417704aed2");
-            URL u = new URL(s);
+            URL u = new URL(url);
             in = u.openStream();
             ByteArrayOutputStream out = new ByteArrayOutputStream();
 
@@ -82,46 +77,62 @@ public class NewApi implements Runnable {
 
         } finally {
             if (in != null) {
-                in.close();
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
         return null;
     }
 
 
-    public static void main(String[] args) {
+    public static Boolean isTimeRange(Date now, String startStr, String endStr) {
+        // "7:00"
+        // "22:00"
         try {
-            String s = netStock(null);
-            int i = s.indexOf("\"increPer\":");
-            int j = s.indexOf("\",\"", i);
-            System.out.println(s.substring(i + 12, j));
-        } catch (IOException e) {
+            SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+            Date begin = df.parse(startStr);
+            Date end = df.parse(endStr);
+            Calendar nowTime = Calendar.getInstance();
+            nowTime.setTime(df.parse(df.format(now)));
+            Calendar beginTime = Calendar.getInstance();
+            beginTime.setTime(begin);
+            Calendar endTime = Calendar.getInstance();
+            endTime.setTime(end);
+//            df.applyPattern("yyyy-MM-dd HH:mm:ss");
+//            System.out.println(df.format(nowTime.getTime()));
+//            System.out.println(df.format(beginTime.getTime()));
+//            System.out.println(df.format(endTime.getTime()));
+            if (nowTime.before(endTime) && nowTime.after(beginTime)) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
+        return false;
     }
 
-    @Override
-    public void run() {
-        while (true) {
-            try {
-                List<String> result = new ArrayList<>();
-                String s = netStock(null);
-                result.add(ResultHandle.fitMsg(s, "包钢股份", "bao", 3));
-                result.add(ResultHandle.fitMsg(s, "HS300ETF", "300ETF", 3));
-                result.add(ResultHandle.fitMsg(s, "创业板50", "创ETF", 3));
+    public static void main(String[] args) {
 
-                lab.setText(String.join("", result));
-                System.out.println("数据：" + lab.getText());
+//       System.out.println(isTimeRange(new Date(),"20:25","20:32"));
+
+//            String s = netStock(null);
+//            int i = s.indexOf("\"increPer\":");
+//            int j = s.indexOf("\",\"", i);
+//            System.out.println( s.substring(i+12,j));
 
 
-            } catch (Exception e) {
-                e.printStackTrace();
-                lab.setText("错误");
-            }
-            try {
-                Thread.sleep(1200 * 60);
-            } catch (InterruptedException e) {
-            }
-        }
+        String url = String.format("http://qt.gtimg.cn/q=%s", "sh513180");
+        String s = HttpUtil.netStock("GBK", url);
+        System.out.println(s);
+        List<String> strings = Arrays.asList(s.split("~"));
+        System.out.println(strings.get(32));
+
     }
+
+
 }
